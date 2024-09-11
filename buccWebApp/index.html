@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bucc WebTask</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="login-container">
+            <h2>Login</h2>
+            <form id="loginForm">
+                <label for="username">Username:</label>
+                <input autocomplete="off" type="text" id="username" name="username" required>
+                
+                <label for="password">Password:</label>
+                <input autocomplete="off" type="password" id="password" name="password" required>
+                
+                <button type="submit">Login</button>
+            </form>
+
+            <div id="userInfo" class="hidden">
+                <h3>User Info</h3>
+                <p><strong>Username:</strong> <span id="displayUsername"></span></p>
+                <p><strong>First Name:</strong> <span id="displayFirstName"></span></p>
+                <p><strong>Last Name:</strong> <span id="displayLastName"></span></p>
+                <p><strong>Age:</strong> <span id="displayAge"></span></p>
+                <p><strong>Experience:</strong> <span id="displayPersonalExp"></span></p>
+            </div>
+
+            <p id="loginErrorMessage" class="error hidden"></p>
+        </div>
+        <div class="register-container">
+            <h2>Register</h2>
+            <form id="registerForm">
+                <label for="registerUsername">Username:</label>
+                <input autocomplete="off" type="text" id="registerUsername" name="username" required>
+                
+                <label for="registerFirstName">First Name:</label>
+                <input autocomplete="off" type="text" id="registerFirstName" name="firstName" required>
+                
+                <label for="registerLastName">Last Name:</label>
+                <input autocomplete="off" type="text" id="registerLastName" name="lastName" required>
+                
+                <label for="registerPassword">Password:</label>
+                <input autocomplete="off" type="password" id="registerPassword" name="password" required>
+                
+                <label for="registerAge">Age:</label>
+                <input autocomplete="off" type="number" id="registerAge" name="age" required>
+                
+                <label for="registerPersonalExp">Experience:</label>
+                <input autocomplete="off" type="text" id="registerPersonalExp" name="personalExp" required>
+                
+                <button type="submit">Register</button>
+            </form>
+
+            <p id="registerErrorMessage" class="error hidden"></p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

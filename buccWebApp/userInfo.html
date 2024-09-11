@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Info</title>
+</head>
+<style>
+   body {
+    font-family: Arial, sans-serif;
+    background-image: linear-gradient(#00796b, #29c5d0);
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.user-info-container {
+    background-color: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.2);
+    max-width: 500px;
+    width: 100%;
+    transform: translateY(50px);
+    opacity: 0;
+    animation: slideIn 1s ease-out forwards;
+}
+
+h2 {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 20px;
+    opacity: 0;
+    animation: fadeIn 0.8s ease-out 0.5s forwards;
+}
+
+p {
+    font-size: 18px;
+    margin: 10px 0;
+    opacity: 0;
+    animation: fadeIn 1s ease-out forwards;
+    animation-delay: 0.7s;
+}
+
+p span {
+    font-weight: bold;
+    color: #333;
+    display: inline-block;
+    opacity: 0;
+    animation: bounceIn 0.6s ease-out forwards;
+    animation-delay: 1s;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes bounceIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    60% {
+        opacity: 1;
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+span {
+    display: inline-block;
+    opacity: 0;
+    animation: zoomIn 0.6s ease-out forwards;
+    animation-delay: 1.2s;
+}
+
+@keyframes zoomIn {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+
+</style>
+<body>
+    <div class="user-info-container">
+        <h2>User Information</h2>
+        <p><strong>Username:</strong> <span id="displayUsername"></span></p>
+        <p><strong>First Name:</strong> <span id="displayFirstName"></span></p>
+        <p><strong>Last Name:</strong> <span id="displayLastName"></span></p>
+        <p><strong>Age:</strong> <span id="displayAge"></span></p>
+        <p><strong>Experience:</strong> <span id="displayPersonalExp"></span></p>
+    </div>
+
+    <script src="userInfo.js"></script>
+</body>
+
+</html>
