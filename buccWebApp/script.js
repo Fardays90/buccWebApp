@@ -65,15 +65,13 @@ document.getElementById('registerForm').addEventListener('submit', function(even
     })
     .then(response => {
         if (response.ok) {
-            return response.text(); // Assuming the response is a simple success message
+            return response.text();
         } else {
             throw new Error('Registration failed');
         }
     })
     .then(message => {
-        // Handle successful registration (e.g., display a success message or redirect)
         alert('Registration successful!');
-        // Optionally clear the form fields
         document.getElementById('registerForm').reset();
     })
     .catch(error => {
