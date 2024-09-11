@@ -4,13 +4,13 @@ document.getElementById('loginForm').addEventListener('submit', function(event) 
     const username = document.getElementById('username').value;
     const password = document.getElementById('password').value;
 
-    // Data to send to backend
+    
     const loginData = {
         username: username,
         password: password
     };
 
-    // Send POST request to login endpoint
+    
     fetch('http://localhost:8080/api/bucc/login', {
         method: 'POST',
         headers: {
@@ -20,21 +20,64 @@ document.getElementById('loginForm').addEventListener('submit', function(event) 
     })
     .then(response => {
         if (response.ok) {
-            return response.json(); // Assuming the response contains user data
+            return response.json(); 
         } else {
             throw new Error('Login failed');
         }
     })
     .then(userInfo => {
-        // Store user info in localStorage
+       
         localStorage.setItem('userInfo', JSON.stringify(userInfo));
 
-        // Redirect to user info page
+       
         window.location.href = 'userInfo.html';
     })
     .catch(error => {
-        // Show error message
         document.getElementById('loginErrorMessage').classList.remove('hidden');
         document.getElementById('loginErrorMessage').textContent = 'Login failed. Please try again.';
+    });
+});
+document.getElementById('registerForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    const username = document.getElementById('registerUsername').value;
+    const firstName = document.getElementById('registerFirstName').value;
+    const lastName = document.getElementById('registerLastName').value;
+    const password = document.getElementById('registerPassword').value;
+    const age = document.getElementById('registerAge').value;
+    const personalExp = document.getElementById('registerPersonalExp').value;
+
+    const registerData = {
+        username: username,
+        firstName: firstName,
+        lastName: lastName,
+        password: password,
+        age: age,
+        personalExp: personalExp
+    };
+
+    fetch('http://localhost:8080/api/bucc/register', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(registerData)
+    })
+    .then(response => {
+        if (response.ok) {
+            return response.text(); // Assuming the response is a simple success message
+        } else {
+            throw new Error('Registration failed');
+        }
+    })
+    .then(message => {
+        // Handle successful registration (e.g., display a success message or redirect)
+        alert('Registration successful!');
+        // Optionally clear the form fields
+        document.getElementById('registerForm').reset();
+    })
+    .catch(error => {
+        document.getElementById('registerErrorMessage').classList.remove('hidden');
+        document.getElementById('registerErrorMessage').textContent = 'Registration failed. Please try again.';
     });
 });
