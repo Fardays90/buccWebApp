@@ -9,3 +9,7 @@ DB_PASSWORD: Your MySQL password.
 Make these changes in the .properties file. 
 Install the dependencies in mentioned in the .xml file and run the springboot application. 
 Use VScode live server for easy use for the frontend.
+
+
+https://github.com/user-attachments/assets/75791439-064d-4770-942c-73893bbe7286
+
